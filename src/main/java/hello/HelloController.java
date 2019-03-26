@@ -2,6 +2,7 @@ package hello;
 
 import domain.*;
 import models.SampleModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,13 +11,8 @@ import java.util.ArrayList;
 
 @RestController
 public class HelloController {
-
-    private Service _service;
-
-    public HelloController()
-    {
-        _service = new Service();
-    }
+    @Autowired
+    private IService _modelService;
 
     @RequestMapping("/")
     public String index() {
@@ -26,7 +22,7 @@ public class HelloController {
     @RequestMapping("/samples")
     public ArrayList<SampleModel> GetSamples()
     {
-        return _service.GetModels();
+        return _modelService.GetModels();
     }
 
 }

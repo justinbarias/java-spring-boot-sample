@@ -1,11 +1,18 @@
 package domain;
 
 import models.*;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-public class Service implements IService{
+@Service
+public class ModelService implements IService{
 
+    public ModelService()
+    {
+
+    }
+    @Override
     public ArrayList<SampleModel> GetModels()
     {
         ArrayList<SampleModel> retVal = new ArrayList<>();
